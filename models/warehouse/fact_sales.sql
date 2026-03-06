@@ -17,6 +17,7 @@ with source as(
         od.status_id,
         od.date_allocated,
         od.purchase_order_id,
+        od.inventory_id,
         date(o.order_date) as order_date,
         o.shipped_date,
         o.paid_date,
