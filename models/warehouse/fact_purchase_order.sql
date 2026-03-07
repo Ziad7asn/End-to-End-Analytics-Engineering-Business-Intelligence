@@ -22,7 +22,9 @@ with source as (
         po.approved_by,
         po.approved_date,
         po.submitted_by,
-        current_timestamp() as inssertion_timestamp
+        po.submitted_date,
+        po.created_by,
+        current_timestamp() as insertion_timestamp
     from {{ref('stg_purchase_orders')}} po
     left join {{ref('stg_purchase_order_details')}} pod
     on pod.purchase_order_id = po.id 
