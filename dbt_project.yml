@@ -30,13 +30,23 @@ clean-targets: # directories to be removed by `dbt clean`
 models:
   ae_project:
     # Config indicated by + and applies to all files under models/example/
+models:
+  ae_project:
+
     staging:
       +enabled: true
-      +materialized: table
+      +materialized: view
       +schema: stg_northwind
+
     warehouse:
       +enabled: true
       +materialized: table
       +schema: dwh_northwind
+
       dim_date:
         +materialized: view
+
+    analytics_obt:
+      +enabled: true
+      +materialized: table
+      +schema: analytics_obt_northwind
